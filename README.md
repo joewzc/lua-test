@@ -1,23 +1,42 @@
-<<<<<<< 76fcc919556235e05f5ff0751f52d63844772acf
-# lua-test
-this is repository that test different lua version change
-=======
+## Skynet
+
+Skynet is a lightweight online game framework, and it can be used in many other fields.
+
 ## Build
 
-Install zeromq 2.2 and lua 5.2 first.
+For Linux, install autoconf first for jemalloc:
 
 ```
+git clone https://github.com/cloudwu/skynet.git
+cd skynet
+make 'PLATFORM'  # PLATFORM can be linux, macosx, freebsd now
+```
+
+Or you can:
+
+```
+export PLAT=linux
 make
 ```
 
+For FreeBSD , use gmake instead of make.
+
 ## Test
 
-Run these in different console
+Run these in different consoles:
 
 ```
-./skynet-master		# Launch master server first
-./skynet config		# Launch first skynet node  (Gate server)
-./skynet config_log	# Launch second skynet node (Global logger server)
-./clinet 127.0.0.1 8888	# Launch a client, and try to input some words.
+./skynet examples/config	# Launch first skynet node  (Gate server) and a skynet-master (see config for standalone option)
+./3rd/lua/lua examples/client.lua 	# Launch a client, and try to input hello.
 ```
->>>>>>> skynet harbor
+
+## About Lua version
+
+Skynet now uses a modified version of lua 5.3.4 ( https://github.com/ejoy/lua/tree/skynet ) for multiple lua states.
+
+You can also use official Lua versions, just edit the Makefile by yourself.
+
+## How To Use (Sorry, Only in Chinese now)
+
+* Read Wiki for documents https://github.com/cloudwu/skynet/wiki
+* The FAQ in wiki https://github.com/cloudwu/skynet/wiki/FAQ
